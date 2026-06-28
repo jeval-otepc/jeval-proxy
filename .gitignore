@@ -1,0 +1,97 @@
+# ============================================================
+# JEVAL (jeval-otepc) — root .gitignore
+# Goal: NEVER commit secrets, credentials, or heavy/generated files.
+# ============================================================
+
+# --- Secrets / environment (keep only *.example templates) ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# --- Keys / certificates ---
+*.key
+*.crt
+*.pem
+*.pfx
+*.p12
+*.csr
+ssl/
+**/appdata/ssl/
+
+# --- Database dumps / data ---
+*.sql
+*.sqlite
+*.sqlite3
+*.dump
+backups/
+**/data/
+pgdata/
+**/volumes/
+postgres_data/
+
+# --- Backup copies / redundant data (NOT operational scripts) ---
+*.bak
+*.backup
+*.backup_full
+*.old
+*.orig
+jeval-strapi-api-app/app/data-config/backup/
+
+# --- Docker / compose secret files ---
+**/secrets/
+
+# --- Scripts with hardcoded credentials (must NOT be committed as-is) ---
+# TODO: refactor to read creds from env, then a sanitized version can be tracked.
+jeval-db/scripts/backup-remote.sh
+
+# --- Dependencies ---
+node_modules/
+.pnp/
+.pnp.js
+.yarn/cache/
+.yarn/install-state.gz
+
+# --- Build / generated output ---
+.next/
+out/
+dist/
+build/
+.strapi/
+.strapi-updater.json
+.cache/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Strapi runtime ---
+.tmp/
+exports/
+**/public/uploads/
+**/uploads/
+!**/uploads/.gitkeep
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Test / coverage ---
+coverage/
+.nyc_output/
+
+# --- Tooling / agents (skills install) ---
+.agents/
+skills-lock.json
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

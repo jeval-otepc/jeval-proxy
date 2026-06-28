@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - ไม่พบหน้าที่ต้องการ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Abstract cartoon background */
+        .cartoon-bg {
+            background-color: #ffffff;
+            background-image:
+                /* Curved lines */
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3f4f6' fill-opacity='0.3'%3E%3Cpath d='M30 30c0-16.569 13.431-30 30-30v60c-16.569 0-30-13.431-30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                /* Dots pattern */
+                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.2'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E"),
+                /* Wave lines */
+                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d1d5db' stroke-width='1' stroke-opacity='0.3'%3E%3Cpath d='M0 20c10-10 30 10 40 0v20H0z'/%3E%3C/g%3E%3C/svg%3E");
+            background-position: 0 0, 0 0, 0 0;
+            background-size: 120px 120px, 40px 40px, 80px 80px;
+        }
+
+        /* Floating cartoon elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .floating-element:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .floating-element:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 0.5s; }
+        .floating-element:nth-child(5) { top: 50%; left: 5%; animation-delay: 1.5s; }
+        .floating-element:nth-child(6) { top: 60%; right: 5%; animation-delay: 2.5s; }
+
+        /* Custom 404 styling */
+        .text-404 {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 900;
+            color: #f3f4f6;
+            opacity: 0.8;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="cartoon-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+
+    <!-- Floating cartoon elements -->
+    <div class="floating-element text-6xl">🌟</div>
+    <div class="floating-element text-5xl">✨</div>
+    <div class="floating-element text-4xl">💫</div>
+    <div class="floating-element text-7xl">🎈</div>
+    <div class="floating-element text-5xl">🌙</div>
+    <div class="floating-element text-6xl">☁️</div>
+
+    <!-- Large 404 background text -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="text-404 float-animation opacity-20">404</div>
+    </div>
+
+    <!-- Main content -->
+    <div class="relative z-10 max-w-2xl mx-auto text-center p-8">
+
+        <!-- 404 Label -->
+        <div class="fade-in mb-8">
+            <div class="inline-block bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                404 - หน้าไม่พบ
+            </div>
+        </div>
+
+        <!-- Main message -->
+        <div class="slide-up">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                <span class="text-5xl mr-2">🔍</span>
+                หน้าที่คุณค้นหาหายไปแล้ว!
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed">
+                ดูเหมือนว่าหน้าที่คุณกำลังมองหาจะหลบซ่อนอยู่ที่ไหนสักแห่ง
+                <br class="hidden md:block">
+                อาจจะไปเที่ยวในอีกมิติหนึ่งก็ได้นะ!
+                <span class="text-3xl">🌟</span>
+            </p>
+        </div>
+
+        <!-- Optional back button (subtle) -->
+        <div class="mt-12 slide-up" style="animation-delay: 0.5s;">
+            <button onclick="goBack()" class="text-gray-500 hover:text-gray-700 transition-colors duration-300 text-sm underline">
+                ← กลับหน้าก่อนหน้า
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = '/';
+            }
+        }
+
+        // Add subtle mouse interaction
+        document.addEventListener('mousemove', function(e) {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            floatingElements.forEach((element, index) => {
+                const speed = (index + 1) * 0.3;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                element.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

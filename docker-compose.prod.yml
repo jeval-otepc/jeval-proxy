@@ -1,0 +1,20 @@
+services:
+  jeval-proxy:
+    image: 'nginx:latest'
+    container_name: jeval-proxy
+    restart: always
+    environment:
+      - TZ=Asia/Bangkok
+    volumes:
+      - ./appdata/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./appdata/nginx/404.html:/etc/nginx/conf.d/404.html:ro
+      - ./appdata/ssl:/etc/nginx/ssl
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - jeval-network
+
+networks:
+  jeval-network:
+    external: true
